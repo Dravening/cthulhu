@@ -1,12 +1,13 @@
 package logic
 
 import (
-	"cthulhu/utils"
 	"fmt"
 	"log"
 	"net"
 	"net/http"
 	"net/rpc"
+
+	"cthulhu/utils"
 )
 
 type Cthulhu struct {

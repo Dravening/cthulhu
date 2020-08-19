@@ -1,12 +1,12 @@
 package main
 
 import (
-	"cthulhu/logic"
-	"cthulhu/utils"
 	"log"
 	"os"
 
 	"cthulhu/clog"
+	"cthulhu/logic"
+	"cthulhu/utils"
 
 	"github.com/urfave/cli/v2"
 )

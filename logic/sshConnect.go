@@ -2,12 +2,13 @@ package logic
 
 import (
 	"bytes"
-	"cthulhu/utils"
 	"fmt"
 	"io/ioutil"
 	"net"
 	"strconv"
 	"time"
+
+	"cthulhu/utils"
 
 	"golang.org/x/crypto/ssh"
 )
@@ -54,7 +55,6 @@ func NewDeviceSSH(sshInfo utils.SSHInfo) DeviceSSH {
 func MultiEstablish(device DeviceSSH) []string {
 	var reply string
 	var replyList []string
-	fmt.Println(device.RoutineConf.RoutineLimit)
 	resultsChan := make([]chan ConnResult, len(device.RoutineConf.AddrList))
 	routineLimit := make(chan bool, device.RoutineConf.RoutineLimit)
 
