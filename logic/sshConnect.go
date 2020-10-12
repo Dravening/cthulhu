@@ -35,7 +35,7 @@ type ConnResult struct {
 	Result  string
 }
 
-func NewDeviceSSH(sshInfo utils.SSHInfo) DeviceSSH {
+func NewDevices(sshInfo utils.SSHInfo) DeviceSSH {
 	device := DeviceSSH{
 		CMDs: utils.SplitString(sshInfo.Cmd),
 		ClientConfig: &ssh.ClientConfig{

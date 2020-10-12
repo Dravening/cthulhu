@@ -14,7 +14,7 @@ type Cthulhu struct {
 }
 
 func (cthulhu Cthulhu) MultiEstablish(sshInfo utils.SSHInfo, reply *[]string) error {
-	device := NewDeviceSSH(sshInfo)
+	device := NewDevices(sshInfo)
 	*reply = MultiEstablish(device)
 	return nil
 }

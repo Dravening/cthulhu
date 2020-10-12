@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -73,10 +74,24 @@ func main() {
 			Usage:       "pause establish connection if there's too many goroutine.  --  such as '30'",
 			Destination: &sshInfo.RoutineLimit,
 		},
+		&cli.StringFlag{
+			Name: "protocol", Aliases: []string{"PR"},
+			Value:       "ssh",
+			Usage:       "choose ssh or telnet.  --  such as 'telnet'",
+			Destination: &sshInfo.Protocol,
+		},
 	}
 	app.Action = func(c *cli.Context) error {
-		deviceSSH := logic.NewDeviceSSH(sshInfo)
-		_ = logic.MultiEstablish(deviceSSH)
+		if sshInfo.Protocol == "ssh" {
+			devices := logic.NewDevices(sshInfo)
+			_ = logic.MultiEstablish(devices)
+			return nil
+		} else if sshInfo.Protocol == "telnet" {
+			//to do...
+		} else {
+			fmt.Println("wrong protocol,protocol should be 'ssh' or 'telnet',please check.")
+			return nil
+		}
 		return nil
 	}
 	app.Commands = []*cli.Command{

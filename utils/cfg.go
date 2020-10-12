@@ -20,6 +20,7 @@ type SSHInfo struct {
 	Password     string
 	Ciphers      string
 	Key          string
+	Protocol     string
 	Timeout      int64
 	RoutineLimit int
 }
